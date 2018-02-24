@@ -1,0 +1,25 @@
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: url(https://cdnjs.cloudflare.com/ajax/libs/vegas/2.3.1/overlays/03.png);
+    background-color: rgba($color-primary, .6);
+    z-index: 1;
+  }
+  
+  &__content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

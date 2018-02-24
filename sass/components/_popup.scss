@@ -1,0 +1,193 @@
+
+.popup{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba($color-black, .8);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease-in-out;
+  
+  &:target{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &:target &__content{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  &__content{
+    @include centerPos;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+    border-radius: 3px;
+    overflow: hidden;
+    display: table;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.3);
+    transition: all 1s ease-in-out .2s;
+  
+    @include respond(tab-land){
+      width: 80%;
+    }
+  
+    @include respond(tab-port){
+      position: relative;
+      display: block;
+    }
+  
+    @include respond(phone){
+      position: relative;
+    }
+  }
+  
+  &__left{
+    width: 33.333333%;
+    display: table-cell;
+    
+  
+    @include respond(tab-land){
+      width: 20%;
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 2rem;
+    }
+  
+    @include respond(tab-port){
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+  
+    @include respond(phone){
+      left:50%;
+      transform: translateX(2%);
+    }
+  }
+  
+  &__right{
+    width: 66.666667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 4rem 0 3rem;
+  
+    @include respond(tab-land){
+      padding: 0 3rem 0 0;
+      width: 80%;
+      margin: 0 3rem 0 0;
+  
+      & > .btn{
+        margin: 2rem 2rem 2rem 4rem;
+      }
+  
+      & > h2,h3{
+        padding: 0 4rem;
+      }
+    }
+  
+    @include respond(tab-port){
+      position: relative;
+      
+      & > .btn{
+        display: inline-block;
+        margin: 2rem;
+        left:50%;
+        transform: translateX(-50%);
+      }
+  
+      & > h2,h3{
+        display: block;
+        padding: 0 3rem;
+        text-align: center;
+    
+      }
+    }
+  
+    @include respond(phone){
+      left:50%;
+      transform: translateX(-47%);
+  
+      & > .btn{
+        display: inline-block;
+        margin: 2rem;
+        left:50%;
+        transform: translateX(-58%);
+      }
+    }
+  }
+  
+  &__img{
+    display: block;
+    
+    @include respond(tab-land){
+      padding: 2rem 0;
+      width: 100%;
+      border-radius: 50%;
+    }
+  
+    @include respond(tab-port){
+      display: inline;
+      width: 20%;
+      margin-right: 5rem;
+    }
+  }
+  
+  &__close, &__close-left{
+    
+    &:link, &:visited{
+      position: absolute;
+      display: inline-block;
+      top: 3rem;
+      right: 3rem;
+      line-height: 0;
+      text-decoration: none;
+      color: $color-primary;
+      font-size: 3rem;
+  
+      @include respond(tab-port){
+        display: none;
+      }
+    }
+  }
+  
+  &__close-left{
+    
+    &:link, &:visited{
+      
+      @include respond(tab-port){
+        display: block;
+        top: 4rem;
+        right: 3rem;
+      }
+  
+      @include respond(phone){
+        top: 3rem;
+        right: 3rem;
+      }
+    }
+  }
+  
+  &__text{
+    margin-bottom: 2rem;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-grey-light;
+  
+    @include respond(tab-land){
+      column-gap: 4rem;
+      margin-bottom: 1rem;
+      padding: 0 2rem 0 4rem;
+    }
+  
+    @include respond(phone){
+      column-count: 1;
+      padding: 0 2rem;
+    }
+  }
+}
